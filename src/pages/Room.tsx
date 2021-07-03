@@ -1,8 +1,10 @@
 import { FormEvent, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { FiSun, FiMoon } from 'react-icons/fi';
 
 import { useAuth } from '../hooks/useAuth';
 import { useRoom } from '../hooks/useRoom';
+import { useTheme } from '../hooks/useTheme';
 
 import { Button } from '../components/Button';
 import { Question } from '../components/Question';
@@ -12,7 +14,7 @@ import { database } from '../services/firebase';
 
 import logoImg from '../assets/images/logo.svg';
 
-import '../styles/room.scss';
+import { Header, Main, Form, QuestionList } from '../styles/room';
 
 type RoomParams = {
   id: string;
@@ -26,6 +28,7 @@ export function Room() {
   
   const { user } = useAuth();
   const { title, questions } = useRoom(roomId);
+  const { theme, toggleTheme } = useTheme();
 
   async function handleSendQuestion(event: FormEvent) {
     event.preventDefault();
@@ -64,21 +67,30 @@ export function Room() {
   }
 
   return (
-    <div id="page-room">
-      <header>
+    <>
+      <Header>
         <div className="content">
-          <img src={logoImg} alt="Letmeask" />
+          <div>
+            <img src={logoImg} alt="Letmeask" />
+            <button className="themeSwitcher" onClick={toggleTheme}>
+              {theme.title === 'light' ? (
+                <FiMoon size={24} />
+              ) : (
+                <FiSun size={24} />
+              )}
+            </button>
+          </div>
           <RoomCode code={roomId} />
         </div>
-      </header>
+      </Header>
 
-      <main>
+      <Main>
         <div className="room-title">
           <h1>Sala {title}</h1>
           { questions.length > 0 && <span>{questions.length} pergunta(s)</span> }
         </div>
 
-        <form onSubmit={handleSendQuestion}>
+        <Form onSubmit={handleSendQuestion}>
           <textarea
             placeholder="O que você quer perguntar?"
             onChange={event => setNewQuestion(event.target.value)}
@@ -98,9 +110,9 @@ export function Room() {
             ) }
             <Button type="submit" disabled={!user}>Enviar pergunta</Button>
           </div>
-        </form>
+        </Form>
 
-        <div className="question-list">
+        <QuestionList>
           {questions.map(question => {
             return (
               <Question
@@ -126,8 +138,8 @@ export function Room() {
               </Question>
             );
           })}
-        </div>
-      </main>
-    </div>
+        </QuestionList>
+      </Main>
+    </>
   )
 }
