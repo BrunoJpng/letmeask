@@ -59,8 +59,8 @@ export function AdminRoom() {
     <>
       <Header>
         <div className="content">
+          <img src={logoImg} alt="Letmeask" />
           <div>
-            <img src={logoImg} alt="Letmeask" />
             <button className="themeSwitcher" onClick={toggleTheme}>
               {theme.title === 'light' ? (
                 <FiMoon size={24} />
@@ -68,8 +68,6 @@ export function AdminRoom() {
                 <FiSun size={24} />
               )}
             </button>
-          </div>
-          <div>
             <RoomCode code={roomId} />
             <Button isOutlined onClick={handleEndRoom}>Encerrar sala</Button>
           </div>

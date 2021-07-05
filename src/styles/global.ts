@@ -7,12 +7,24 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
 
+  @media(max-width: 1080px) {
+    html {
+      font-size: 93.75%;
+    }
+  }
+
+  @media(max-width: 720px) {
+    html {
+      font-size: 87.5%;
+    }
+  }
+
   body {
     background: ${props => props.theme.colors.background};
     color: ${props => props.theme.colors.text};
   }
 
   body, input, button, textarea {
-    font: 400 16px 'Roboto', sans-serif;
+    font: 400 1rem 'Roboto', sans-serif;
   }
 `;

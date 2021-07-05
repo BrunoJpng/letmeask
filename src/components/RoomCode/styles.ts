@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const RoomCodeButton = styled.button`
-  height: 40px;
-  border-radius: 8px;
+  height: 2.5rem;
+  border-radius: 0.5rem;
   overflow: hidden;
 
   background: ${props => props.theme.colors.inputBackground};
@@ -14,7 +14,7 @@ export const RoomCodeButton = styled.button`
 
   div {
     background: ${props => props.theme.colors.primary};
-    padding: 0 12px;
+    padding: 0 0.75rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,9 +25,13 @@ export const RoomCodeButton = styled.button`
     display: block;
     align-self: center;
     flex: 1;
-    padding: 0 16px 0 12px;
-    width: 240px;
-    font-size: 14px;
+    padding: 0 1rem 0 0.75rem;
+    max-width: 15rem;
+    font-size: 0.875rem;
     font-weight: 500;
+
+    @media(max-width: 500px) {
+      display: none;
+    }
   }
 `;

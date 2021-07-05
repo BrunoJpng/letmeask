@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Header = styled.header`
-  padding: 24px;
+  padding: 1.5rem;
   border-bottom: 1px solid ${props => props.theme.colors.border};
 
   .content {
@@ -10,6 +10,7 @@ export const Header = styled.header`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 1.5rem;
 
     img {
       max-height: 45px;
@@ -17,10 +18,16 @@ export const Header = styled.header`
 
     > div {
       display: flex;
-      gap: 16px;
+      gap: 1rem;
 
       button {
-        height: 40px;
+        height: 2.5rem;
+      }
+    }
+
+    @media(max-width: 500px) {
+      button.outlined {
+        padding: 0 1rem;
       }
     }
   }
@@ -36,26 +43,32 @@ export const Header = styled.header`
 export const Main = styled.main`
   max-width: 800px;
   margin: 0 auto;
+  padding: 0 1.5rem;
 
   .room-title {
-    margin: 32px 0 24px;
+    margin: 2rem 0 1.5rem;
     display: flex;
     align-items: center;
 
     h1 {
       font-family: 'Poppins', sans-serif;
-      font-size: 24px;
+      font-size: 1.5rem;
       color: ${props => props.theme.colors.text};
     }
 
     span {
-      margin-left: 16px;
+      margin-left: 1rem;
       background: ${props => props.theme.colors.secondary};
       border-radius: 9999px;
-      padding: 8px 16px;
+      padding: 0.5rem 1rem;
       color: #fff;
       font-weight: 500;
-      font-size: 14px;
+      font-size: 0.875rem;
+
+    }
+    
+    @media(max-width: 350px) {
+      flex-direction: column;
     }
   }
 `;
@@ -64,8 +77,8 @@ export const Form = styled.form`
   textarea {
     width: 100%;
     border: 0;
-    padding: 16px;
-    border-radius: 8px;
+    padding: 1rem;
+    border-radius: 0.5rem;
     background: ${props => props.theme.colors.inputBackground};
     color: ${props => props.theme.colors.text};
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
@@ -77,28 +90,28 @@ export const Form = styled.form`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 16px;
+    margin-top: 1rem;
 
     .user-info {
       display: flex;
       align-items: center;
 
       img {
-        width: 32px;
-        height: 32px;
+        width: 2rem;
+        height: 2rem;
         border-radius: 50%;
       }
 
       span {
-        margin-left: 8px;
+        margin-left: 0.5rem;
         color: ${props => props.theme.colors.text};
         font-weight: 500;
-        font-size: 14px;
+        font-size: 0.875rem;
       }
     }
 
     > span {
-      font-size: 14px;
+      font-size: 0.875rem;
       color: #737380;
       font-weight: 500;
 
@@ -107,7 +120,7 @@ export const Form = styled.form`
         border: 0;
         color: #835afd;
         text-decoration: underline;
-        font-size: 14px;
+        font-size: 0.875rem;
         font-weight: 500;
         cursor: pointer;
       }
@@ -118,6 +131,6 @@ export const Form = styled.form`
 export const QuestionList = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 32px;
-  gap: 8px;
+  margin-top: 2rem;
+  gap: 0.5rem;
 `;

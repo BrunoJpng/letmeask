@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
 export const StyledButton = styled.button`
-  height: 50px;
-  border-radius: 8px;
+  height: 3.125rem;
+  border-radius: 0.5rem;
   font-weight: 500;
   background: ${props => props.theme.colors.primary};
   color: #fff;
-  padding: 0 32px;
+  padding: 0 2rem;
 
   display: flex;
   justify-content: center;
@@ -18,7 +18,7 @@ export const StyledButton = styled.button`
   transition: filter 0.2s;
 
   img {
-    margin-right: 8px;
+    margin-right: 0.5rem;
   }
 
   &.outlined {

@@ -15,22 +15,22 @@ export const PageAuthContainer = styled.div`
     flex-direction: column;
     justify-content: center;
 
-    padding: 120px 80px;
+    padding: 7.5rem 5rem;
 
     img {
-      max-width: 320px;
+      max-width: 20rem;
     }
 
     strong {
-      font: 700 36px 'Poppins', sans-serif;
-      line-height: 42px;
-      margin-top: 16px;
+      font: 700 2.25rem 'Poppins', sans-serif;
+      line-height: 2.625rem;
+      margin-top: 1rem;
     }
 
     p {
-      font-size: 24px;
-      line-height: 32px;
-      margin-top: 16px;
+      font-size: 1.5rem;
+      line-height: 2rem;
+      margin-top: 1rem;
       color: #f8f8f8;
     }
   }
@@ -38,11 +38,32 @@ export const PageAuthContainer = styled.div`
   main {
     flex: 8;
 
-    padding: 0 32px;
+    padding: 0 2rem;
 
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  @media(max-width: 850px) {
+    flex-direction: column;
+
+    aside {
+      flex: 1;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 3rem;
+      padding: 3rem 2rem;
+
+      img {
+        height: 10rem;
+
+        @media(max-width: 640px) {
+          display: none;
+        }
+      }
+    }
   }
 `;
 
@@ -50,7 +71,7 @@ export const MainContent = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 320px;
+  max-width: 20rem;
   align-items: stretch;
   text-align: center;
 
@@ -59,22 +80,22 @@ export const MainContent = styled.div`
   }
 
   h2 {
-    font-size: 24px;
-    margin: 64px 0 24px;
+    font-size: 1.5rem;
+    margin: 4rem 0 1.5rem;
     font-family: 'Poppins', sans-serif;
   }
 
   form {
     input {
-      height: 50px;
-      border-radius: 8px;
-      padding: 0 16px;
+      height: 3.125rem;
+      border-radius: 0.5rem;
+      padding: 0 1rem;
       background: ${props => props.theme.colors.inputBackground};
       border: 1px solid ${props => props.theme.colors.inputBorder};
     }
 
     button {
-      margin-top: 16px;
+      margin-top: 1rem;
     }
 
     button, input {
@@ -83,9 +104,9 @@ export const MainContent = styled.div`
   }
 
   p {
-    font-size: 14px;
+    font-size: 0.875rem;
     color: #737380;
-    margin-top: 16px;
+    margin-top: 1rem;
 
     a {
       color: ${props => props.theme.colors.secondary};
@@ -94,9 +115,9 @@ export const MainContent = styled.div`
 `;
 
 export const CreateRoomButton = styled.button`
-  margin-top: 64px;
-  height: 50px;
-  border-radius: 8px;
+  margin-top: 4rem;
+  height: 3.125rem;
+  border-radius: 0.5rem;
   font-weight: 500;
   background: ${props => props.theme.colors.red};
   color: #fff;
@@ -111,7 +132,7 @@ export const CreateRoomButton = styled.button`
   transition: filter 0.2s;
 
   img {
-    margin-right: 8px;
+    margin-right: 0.5rem;
   }
 
   &:hover {
@@ -120,10 +141,10 @@ export const CreateRoomButton = styled.button`
 `;
 
 export const Separator = styled.div`
-  font-size: 14px;
+  font-size: 0.875rem;
   color: ${props => props.theme.colors.inputBorder};
 
-  margin: 32px 0;
+  margin: 2rem 0;
   display: flex;
   align-items: center;
 
@@ -132,7 +153,7 @@ export const Separator = styled.div`
     flex: 1;
     height: 1px;
     background: ${props => props.theme.colors.inputBorder};
-    margin-right: 16px;
+    margin-right: 1rem;
   }
 
   &::after {
@@ -140,6 +161,6 @@ export const Separator = styled.div`
     flex: 1;
     height: 1px;
     background: ${props => props.theme.colors.inputBorder};
-    margin-left: 16px;
+    margin-left: 1rem;
   }
 `;
